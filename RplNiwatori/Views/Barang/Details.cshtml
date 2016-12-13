@@ -51,7 +51,7 @@
         <dt>&nbsp;</dt>
         <dd>
             @if (User.IsInRole("Admin"))
-            { 
+            {
                 <a href="~/Barang/Edit/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-danger btn-xs">Ubah Stok</a>
             }
             else
