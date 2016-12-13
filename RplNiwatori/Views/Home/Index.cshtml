@@ -49,35 +49,7 @@
     </style>
 </head>
 <body>
-    @*<script>
-        // Automatic Slideshow - change image every 3 seconds
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}
-            x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 3000);
-        }
-            </script>
-
-            <section>
-                <img class="mySlides" src="ayam.png"
-                     style="width:100%">
-                <img class="mySlides" src="ayam4.png"
-                     style="width:100%">
-                <img class="mySlides" src="ayam1.png"
-                     style="width:100%">
-                <img class="mySlides" src="ayam2.png"
-                     style="width:100%">
-            </section>*@
-
+   
     <div class="container">
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -122,21 +94,43 @@
 
         <div class="container">
 
-            <section class="container text-center" style="max-width:600px">
+            <section class="container text-left">
+
                 <h2 class="w3-wide">AYAM POTONG PAK YOSEP</h2>
                 <p style="opacity: 0.5"><i>Ayam Besar dan Sehat</i></p>
                 <br />
-                <img src="~/Content/image/ayam.png" height="150" width="150" />
-                <br />
-                <br />
-                <p style="text-align:justify">
-                    Ayam Potong Pak Yosep berdiri sejak tahun 1990. Sesuai dengan namanya, kemitraan ayam potong ini didirikan oleh Pak Yosep Parto Sutijo.
-                    Bisnis ayam potong ini diawali dengan berjualan telur ayam, yang kemudian berkembang menjadi bisnis yang sekarang ini. Pada zaman era teknologi saat ini, bisnis ayam pak Yosep berinovasi untuk membuat masyarakat khususnya yang berada di Jawa Tengah, memperoleh
-                    kemudahan dalam memesan ayam dan kebutuhannya dengan memanfaatkan teknologi yang ada. Dengan pemesanan Ayam berbasis web, kini memesan ayam dapat dilakukan dengan mudah dan cepat.
-                </p>
+                <nav>
+                    <br />
+
+                    <img src="~/Content/image/ayam.png" height="150" width="150" />
+
+                </nav>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p style="text-align:justify">
+                            Ayam Potong Pak Yosep berdiri sejak tahun 1990. Sesuai dengan namanya, kemitraan ayam potong ini didirikan oleh Pak Yosep Parto Sutijo.
+                            Bisnis ayam potong ini diawali dengan berjualan telur ayam, yang kemudian berkembang menjadi bisnis yang sekarang ini. Pada zaman era teknologi saat ini, bisnis ayam pak Yosep berinovasi untuk membuat masyarakat khususnya yang berada di Jawa Tengah, memperoleh
+                            kemudahan dalam memesan ayam dan kebutuhannya dengan memanfaatkan teknologi yang ada. Dengan pemesanan Ayam berbasis web, kini memesan ayam dapat dilakukan dengan mudah dan cepat.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h2>Butuh Bantuan?</h2>
+                        <h4>Kontak</h4>
+                        <img src="~/Content/image/phone.png" height="20" width="20" /> 08172826067
+                        <br /> <br />
+                        <img src="~/Content/image/email.png" height="20" width="20" /> yosepsutijo@gmail.com
+                        <br /><br />
+                        <h4>Lokasi</h4>
+                        <img src="~/Content/image/lokasi.png" height="20" width="20" /> Ds.Grenggeng RT 02/RW 09 No. 10, Karanganyar, Kebumen
+                    </div>
+
+                </div>
             </section>
+
         </div>
     </div>
+  
 
 </body>
 </html>

@@ -16,13 +16,13 @@
             <img src="~/Content/Image/@Model.Gambar" height="200" width="200" /><br /><br />
         </dd>
 
-        @*<dt>
+        <dt>
                 Nama Barang
             </dt>
 
             <dd>
                 <strong>@Html.DisplayFor(model => model.Nama_Barang)</strong>
-            </dd>*@
+            </dd>
 
         <dt>
             Satuan
@@ -52,11 +52,11 @@
         <dd>
             @if (User.IsInRole("Admin"))
             { 
-                <a href="~/Barang/Edit/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-danger btn-xs">Ubah Stok</a>
+                <a href="~/Barang/Edit/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-success">Ubah Stok</a>
             }
             else
             {
-                <a href="~/Keranjang_Belanja/TambahCart/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-danger btn-xs">Tambah ke Keranjang</a>
+                <a href="~/Keranjang_Belanja/TambahCart/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-success">Tambah ke Keranjang</a>
             }
         </dd>
     </dl>

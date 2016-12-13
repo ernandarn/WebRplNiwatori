@@ -9,10 +9,12 @@
 
 <style>
     div.img {
+        padding-top : 10px;
+        padding-right : 10px;
         margin: 5px;
         border: 1px solid #ccc;
         float: left;
-        width: 180px;
+        width: 200px;
     }
 
         div.img:hover {
@@ -25,9 +27,9 @@
         }
 
     div.desc {
-        padding: 20px;
+        padding: 10px;
         text-align: left;
-        width: 300px;
+        width: 200px;
     }
 </style>
 
@@ -35,22 +37,24 @@
 <br />
 @foreach (var item in Model)
 {
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        @*<a target="_blank" href="/Barang/Details">*@
-        <img src="~/Content/Image/@item.Gambar" height="150" width="150" /> <br />
-        @*</a>*@
+    <div class="img col-md-4">
+        <a target="_blank" href="/Barang/Details">
+            <img src="~/Content/Image/@item.Gambar" /> <br />
+        </a>
         <div class="desc">
             <a href="/Barang/Details/@item.Kode_Barang"><strong>@item.Nama_Barang</strong></a><br />
             Satuan : @item.Satuan<br />
             Harga  : Rp.@item.Harga.ToString("N0")<br />
             Stok   : @item.Stok<br />
+            <br />
             @if (User.IsInRole("Admin"))
             {
-                <a href="~/Barang/Edit/@item.Kode_Barang" class="btn btn-danger btn-xs">Ubah Stok</a>
+
+                <a href="~/Barang/Edit/@item.Kode_Barang" class="btn btn-success">Ubah</a>
             }
             else
             {
-                <a href="~/Keranjang_Belanja/TambahCart/@item.Kode_Barang" class="btn btn-danger btn-xs">Tambah ke Keranjang</a>
+                <a href="~/Keranjang_Belanja/TambahCart/@item.Kode_Barang" class="btn btn-success">Tambah ke Keranjang</a>
             }
         </div>
     </div>
