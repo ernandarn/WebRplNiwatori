@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RplNiwatori.Models.Formulir_Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nama_Pelanggan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Metode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Cart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alamat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Kec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_Hp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama_Pelanggan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Metode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Cart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alamat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Kec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.No_Hp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Formulir }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Formulir }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Formulir })
+        </td>
+    </tr>
+}
+
+</table>

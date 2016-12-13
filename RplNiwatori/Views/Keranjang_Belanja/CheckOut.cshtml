@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RplNiwatori.Models.Keranjang_Belanja>
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2 style="text-align:left;font-weight:bold;font-family:Arial">Periksa Pesanan Anda</h2>
+<div class="alert alert-warning" id="alt">
+    <a href="#" class="close">&times;</a>
+    <strong>Silahkan memeriksa pemesanan sebelum melanjutkan pengisian formulir pemesanan</strong>
+</div>
+
+<p>
+    @Html.Raw(ViewBag.Pesan)
+</p>
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
+@*@using (Html.BeginForm("Create", "Formulir_Order", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))*@
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Kode_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Nama_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Stok)
+        </th>
+        <th>
+            Subtotal
+        </th>
+    </tr>
+    @{ decimal grandtotal = 0;}
+    @foreach (var item in Model)
+    {
+        var price = string.Format("{0:N0}", item.Barang.Harga);
+        var total = item.Qty * item.Barang.Harga;
+        grandtotal += total;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barang.Kode_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barang.Nama_Barang)
+            </td>
+            <td>
+                @price
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @string.Format("{0:N0}", total)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<p style="text-align:right">
+    <strong>Total : Rp.@string.Format("{0:N0}", grandtotal)</strong>
+</p>
+<br /> <br />
+@*@Html.ActionLink("Pesan", "OrderNew", "Nota_Pemesanan")*@
+@*@Html.ActionLink("Pesan", "OrderNew", "Nota_Pemesanan")*@
+@*@Html.ActionLink("Lanjut ke Formulir Pemesanan", "Create", "Formulir_Order", new { @class = "btn btn-success" })*@
+
+
+<a href="~/Formulir_Order/Create/" class="btn btn-success btn-xs">Lanjut ke Formulir Pemesanan</a>
+

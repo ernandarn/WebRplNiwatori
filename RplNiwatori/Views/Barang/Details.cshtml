@@ -1,0 +1,67 @@
+﻿@model RplNiwatori.Models.Barang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2 style="text-align:center;font-weight:bold;font-family:Arial">@Html.DisplayFor(model => model.Nama_Barang)</h2>
+<br />
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <img src="~/Content/Image/@Model.Gambar" height="200" width="200" /><br /><br />
+        </dd>
+
+        @*<dt>
+                Nama Barang
+            </dt>
+
+            <dd>
+                <strong>@Html.DisplayFor(model => model.Nama_Barang)</strong>
+            </dd>*@
+
+        <dt>
+            Satuan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Satuan)
+        </dd>
+
+        <dt>
+            Harga Jual
+        </dt>
+
+        <dd>
+            <strong>Rp. @Html.DisplayFor(model => model.Harga)</strong>
+        </dd>
+
+        <dt>
+            Stok
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stok)
+        </dd>
+
+        <dt>&nbsp;</dt>
+        <dd>
+            @if (User.IsInRole("Admin"))
+            { 
+                <a href="~/Barang/Edit/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-danger btn-xs">Ubah Stok</a>
+            }
+            else
+            {
+                <a href="~/Keranjang_Belanja/TambahCart/@Html.DisplayFor(model => model.Kode_Barang)" class="btn btn-danger btn-xs">Tambah ke Keranjang</a>
+            }
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Kembali ke Daftar Barang", "Index")
+</p>

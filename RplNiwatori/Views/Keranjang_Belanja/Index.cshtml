@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RplNiwatori.Models.Keranjang_Belanja>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Keranjang Belanja</h2>
+<br />
+
+<p>
+    @Html.Raw(ViewBag.Pesan)
+</p>
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Kode_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Nama_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barang.Harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            Subtotal
+        </th>
+        <th></th>
+    </tr>
+    @{ decimal grandtotal = 0;}
+    @foreach (var item in Model)
+    {
+        var price = string.Format("{0:N0}", item.Barang.Harga);
+        var total = item.Qty * item.Barang.Harga;
+        grandtotal += total;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kode_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barang.Nama_Barang)
+            </td>
+            <td style="text-align:center">
+                @price
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td style="text-align:center">
+                @string.Format("{0:N0}", total)
+            </td>
+            <td style="text-align:center">
+                @Html.ActionLink("Ubah", "Edit", new { id = item.Id_Cart }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Hapus", "Hapus", new { id = item.Id_Cart }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p style="margin-left:570px">
+    <strong>Total : Rp.@string.Format("{0:N0}", grandtotal)</strong>
+</p>
+
+
+
+@Html.ActionLink("Pesan", "CheckOut", "Keranjang_Belanja", new { @class = "btn btn-success" })
+@*@Html.ActionLink("", "Create", "Formulir_Order", new { @class = "btn btn-success" })*@
+
+<br /><br />
+<div>
+    @Html.ActionLink("Kembali ke Daftar Barang", "Index", "Barang")
+</div>

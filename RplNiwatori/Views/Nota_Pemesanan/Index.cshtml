@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RplNiwatori.ViewModels.Nota_PemesananVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">Invoice</h2>
+
+@{ var name = "";}
+@{ var id = 0;}
+@foreach (var i in Model)
+{
+    name = i.UserName;
+    id = i.No_Nota;
+}
+<h3><strong>No Nota : @id</strong></h3>
+<h4><strong>Username : @name</strong></h4>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nama_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Harga)
+        </th>
+        <th></th>
+    </tr>
+    @{ decimal grandtotal = 0;}
+    @foreach (var item in Model)
+    {
+        var price = string.Format("{0:N0}", item.Harga);
+        var total = item.Qty * item.Harga;
+        grandtotal += total;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Harga)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+
+<p style="margin-left:900px">
+    <strong>Total : Rp.@string.Format("{0:N0}", grandtotal)</strong>
+</p>
+
+<p>
+    <strong>Silahkan Melakukan Pembayaran ke Bank BNI a/n ----- No. rek ------</strong>
+    <strong>
+        Sebesar : Rp.@string.Format("{0:N0}", grandtotal)
+    </strong>
+</p>
