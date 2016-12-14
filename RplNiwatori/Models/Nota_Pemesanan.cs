@@ -8,11 +8,6 @@ namespace RplNiwatori.Models
 
     public partial class Nota_Pemesanan
     {
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        //public Nota_Pemesanan()
-        //{
-        //    Detail_Pemesanan = new HashSet<Detail_Pemesanan>();
-        //}
         [Key]
         public int No_Nota { get; set; }
 
@@ -25,8 +20,5 @@ namespace RplNiwatori.Models
         public DateTime Tanggal_Kirim { get; set; }
 
         public virtual Detail_Pemesanan Detail_Pemesanan { get; set; }
-
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Detail_Pemesanan> Detail_Pemesanan { get; set; }
     }
 }
