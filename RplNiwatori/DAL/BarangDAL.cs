@@ -59,6 +59,14 @@ namespace RplNiwatori.DAL
             db.Dispose();
         }
 
+        //search
+        public IQueryable<Barang> Search(string txtSearch)
+        {
+            var result = from a in db.Barang
+                         where a.Nama_Barang.ToLower().Contains(txtSearch.ToLower())
+                         select a;
+            return result;
+        }
 
     }
 }

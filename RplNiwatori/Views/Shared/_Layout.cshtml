@@ -7,6 +7,28 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <style>
+        input[type=text] {
+            width: 1200px;
+            height: 48px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            font-size: 11px;
+            background-color: white;
+            background-image: url('search-icon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+            input[type=text]:focus {
+                width: 80%;
+            }
+    </style>
+
     <script type = 'text/javascript' >
         var appInsights=window.appInsights||function(config)
         {
@@ -36,6 +58,12 @@
                     <li>@Html.ActionLink("Profil", "Index", "Home")</li>
                     <li>@Html.ActionLink("Kontak", "About", "Home")</li>
                     <li>@Html.ActionLink("Produk", "Index", "Barang")</li>
+                    @*//Search*@
+                    <li>@using (Html.BeginForm("Search", "Barang", FormMethod.Post, new { @class = "form-inline" }))
+                    {
+                        <input type="text" name="txtSearch" placeholder="Search" class="form-control" />
+                    }
+                </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

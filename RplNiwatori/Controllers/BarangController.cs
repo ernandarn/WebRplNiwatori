@@ -38,6 +38,16 @@ namespace RplNiwatori.Controllers
             }
         }
 
+        //Search
+        public ActionResult Search(string txtSearch)
+        {
+            using (BarangDAL bar = new BarangDAL())
+            {
+                var result = bar.Search(txtSearch).ToList();
+                return View("Index", result);
+            }
+        }
+
         [HttpPost, ActionName("Edit")]
         public ActionResult EditPost(Barang brg)
         {
